@@ -1,18 +1,9 @@
-## Getting Started
+#StoneBreaker Game
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+This game was developed while studying for an exam for an Object Oriented Programming subject in college.
 
-## Folder Structure
+A big amount of code was already given by the corresponding teachers of the class. The GUI was 100% given by the teachers.
 
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+Arrows to control the yellow bulldozer(the player). Red bulldozers are controlled randomly by the computer. At the top there are your's and the computer's scores.
+Destroying big stones gives 2 points, small stones give 1 point.
+At the moment there is only 1 level made for the game.
