@@ -6,9 +6,6 @@ import engine.StoneBreaker;
 import utils.Direction;
 import utils.Point2D;
 
-//TODO
-//Pode ser necessario mudar o construtor
-//
 public class Bulldozer extends GameElement {
 
 	public static final int BULLDOZER_LAYER = 2;
