@@ -13,15 +13,25 @@ public class Bulldozer extends GameElement {
 
 	public static final int BULLDOZER_LAYER = 2;
 	Direction direction = Direction.UP;
+	private int points;
 		
 	public Bulldozer(Point2D position) {
 		super("bulldozer_U", position, BULLDOZER_LAYER);
+		points = 0;
+	}
+
+	public int getPoints(){
+		return points;
+	}
+
+	public void addPoints(int i){
+		points+=i;
 	}
 	
 	public void move(Direction d) {
 		direction = d;
 		Point2D newPosition = getPosition().plus(d.asVector());
-		if(StoneBreaker.inBounds(getPosition().plus(d.asVector()))) setPosition(newPosition);
+		if(StoneBreaker.inBounds(getPosition().plus(d.asVector())) && StoneBreaker.getInstance().isPassable(newPosition)) setPosition(newPosition);
 
 		List<Breakable> breakables = StoneBreaker.getInstance().breakablesAt(newPosition);
 		breakables.forEach(b -> b.brokenBy(this));
@@ -29,7 +39,7 @@ public class Bulldozer extends GameElement {
 
 	@Override
 	public String getName(){
-		return "bulldozer" + direction.name().charAt(0);
+		return "bulldozer_" + direction.name().charAt(0);
 	}
 	
 	@Override

@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.function.Predicate;
 
+import objects.AutoBulldozer;
 import objects.Breakable;
 import objects.Bulldozer;
 import objects.GameElement;
@@ -53,7 +54,10 @@ public class StoneBreaker implements Observer {
 	private StoneBreaker() {
 		readLevel();
 		ImageMatrixGUI.getInstance().update();
+		ImageMatrixGUI.getInstance().setStatusMessage("Pontuação do Jogador: " + getPlayerPoints() + "       Pontuação do Computador: " + getAutoPoints());
 	}
+
+	
 
 	// Devolve uma instancia unica de StoneBreaker 
 	public static StoneBreaker getInstance() {
@@ -65,6 +69,7 @@ public class StoneBreaker implements Observer {
 	// Invocado sempre que se carrega numa tecla
 	@Override
 	public void update(Observed arg0) {
+
 		int lastKeyPressed = ((ImageMatrixGUI) arg0).keyPressed();
 		
 		// Desencadeia o movimento dos bulldozers - nos automaticos a direcao sera' 
@@ -74,9 +79,16 @@ public class StoneBreaker implements Observer {
 		}
 		
 		// Verificar se terminou - se sim, apaga a janela
-		if (isFinished())
+		if (isFinished()){
+			String str;
+			if(getPlayerPoints() > getAutoPoints()) str = "O Jogador ganhou";
+			else if(getPlayerPoints() == getAutoPoints()) str = "O jogo ficou empatado";
+			else str = "O computador ganhou";
+			ImageMatrixGUI.getInstance().setMessage(str);	
 			ImageMatrixGUI.getInstance().dispose();
+		}
 
+		ImageMatrixGUI.getInstance().setStatusMessage("Pontuação do Jogador: " + getPlayerPoints() + "       Pontuação do Computador: " + getAutoPoints());
 		ImageMatrixGUI.getInstance().update();
 	}
 
@@ -160,5 +172,19 @@ public class StoneBreaker implements Observer {
 	// Verifica se o jogo chegou ao fim
 	private boolean isFinished() {
 		return getBreakables().size() == 0;
+	}
+
+	private int getPlayerPoints(){
+		List<Bulldozer> bulls = getBulldozers();
+		for(Bulldozer b : bulls){
+			if(!(b instanceof AutoBulldozer))return b.getPoints();
+		}
+		return 0;
+	}
+
+	private int getAutoPoints() {
+		List<Bulldozer> bulls = getBulldozers();
+		if(bulls.size() != 0) return bulls.get(0).getPoints();
+		return 0;
 	}
 }
