@@ -3,9 +3,6 @@ package objects;
 import engine.StoneBreaker;
 import utils.Point2D;
 
-// TODO
-// Pode ser necessario mudar a declaracao da classe e/ou construtor
-//
 public class PedraGrande extends Pedra {
 
 	public PedraGrande(Point2D position) {
@@ -23,6 +20,4 @@ public class PedraGrande extends Pedra {
 	public void givePointsTo(Bulldozer b) {
 		b.addPoints(2);
 	}
-	
-	// TODO
 }

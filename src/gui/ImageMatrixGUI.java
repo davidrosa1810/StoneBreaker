@@ -335,7 +335,7 @@ public class ImageMatrixGUI extends Observed {
 		JOptionPane.showMessageDialog(panel, Message);
     }
 
-    @SuppressWarnings("serial") // Added 2-Mar-2016
+    @SuppressWarnings("all") // Added 2-Mar-2016
     private class DisplayWindow extends JPanel {
         @Override
         public void paintComponent(Graphics g) {
