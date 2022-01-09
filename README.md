@@ -1,4 +1,4 @@
-#StoneBreaker Game
+# StoneBreaker Game
 
 This game was developed while studying for an exam for an Object Oriented Programming subject in college.
 
