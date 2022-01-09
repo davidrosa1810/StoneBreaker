@@ -10,11 +10,10 @@ import java.util.function.Predicate;
 import objects.Breakable;
 import objects.Bulldozer;
 import objects.GameElement;
-import pt.iul.ista.poo.gui.ImageMatrixGUI;
-import pt.iul.ista.poo.observer.Observed;
-import pt.iul.ista.poo.observer.Observer;
-import pt.iul.ista.poo.utils.Direction;
-import pt.iul.ista.poo.utils.Point2D;
+import gui.*;
+import observer.*;
+import utils.Point2D;
+import utils.Direction;
 
 /* Classe com o motor de jogo - e' um solitao. 
  * 
@@ -84,13 +83,13 @@ public class StoneBreaker implements Observer {
 	// Insere um novo objeto no jogo
 	public void addObject(GameElement obj) {
 		gameObjects.add(obj);
-		ImageMatrixGUI.getInstance().addImage(obj);
+		ImageMatrixGUI.getInstance().addImage((ImageTile) obj);
 	}
 
 	// Remove um objeto do jogo
 	public void removeObject(GameElement obj) {
 		gameObjects.remove(obj);
-		ImageMatrixGUI.getInstance().removeImage(obj);
+		ImageMatrixGUI.getInstance().removeImage((ImageTile) obj);
 	}
 	
 	// Devolve os objetos Breakable que estao na posicao p
@@ -145,7 +144,7 @@ public class StoneBreaker implements Observer {
 			while (s.hasNextLine()) {
 				String line = s.nextLine();
 				for (int x = 0; x != line.length(); x++) {
-					ImageMatrixGUI.getInstance().addImage(GameElement.create(CHAO, x, y));
+					ImageMatrixGUI.getInstance().addImage((ImageTile) GameElement.create(CHAO, x, y));
 					char c = line.charAt(x);
 					if (c!=CHAO) 
 						addObject(GameElement.create(c, x, y));

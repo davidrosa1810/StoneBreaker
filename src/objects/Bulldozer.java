@@ -1,7 +1,7 @@
 package objects;
 
-import pt.iul.ista.poo.utils.Direction;
-import pt.iul.ista.poo.utils.Point2D;
+import utils.Direction;
+import utils.Point2D;
 
 //TODO
 //Pode ser necessario mudar o construtor

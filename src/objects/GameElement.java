@@ -1,8 +1,7 @@
 package objects;
 import engine.StoneBreaker;
-
-import pt.iul.ista.poo.gui.ImageTile;
-import pt.iul.ista.poo.utils.Point2D;
+import gui.ImageTile;
+import utils.Point2D;
 
 
 public abstract class GameElement implements ImageTile {

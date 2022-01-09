@@ -1,6 +1,6 @@
 package engine;
 
-import pt.iul.ista.poo.gui.ImageMatrixGUI;
+import gui.ImageMatrixGUI;
 
 public class Main {
 

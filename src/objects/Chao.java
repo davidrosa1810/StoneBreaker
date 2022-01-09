@@ -1,5 +1,5 @@
 package objects;
-import pt.iul.ista.poo.utils.Point2D;
+import utils.Point2D;
 
 public class Chao extends GameElement {
 

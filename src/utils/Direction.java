@@ -1,7 +1,6 @@
 package utils;
 
 import java.awt.event.KeyEvent;
-import java.io.Serializable;
 import java.util.Random;
 
 /**
@@ -11,7 +10,7 @@ import java.util.Random;
  * Cardinal directions
  *
  */
-public enum Direction implements Serializable {
+public enum Direction {
 	LEFT(new Vector2D(-1,0)), UP(new Vector2D(0,-1)), RIGHT(new Vector2D(1,0)), DOWN(new Vector2D(0,1));
 
 	private Vector2D vector;
